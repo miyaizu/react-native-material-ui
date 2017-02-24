@@ -61,7 +61,7 @@ class HeaderAcount extends PureComponent {
         }
 
         let contextStyle = StyleSheet.flatten(this.context.uiTheme.drawerHeaderListItem.container);
-        let propStyle = this.props.style.listItem;
+        let propStyle = this.props.style.footerItem;
         let s = _.merge({}, propStyle, { container: contextStyle });
         let localStyle = StyleSheet.create(s);
 
