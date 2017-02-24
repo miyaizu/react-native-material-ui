@@ -1,8 +1,10 @@
 /* eslint-disable import/no-unresolved, import/extensions */
 import React, { PureComponent, PropTypes } from 'react';
-import { View, TouchableWithoutFeedback } from 'react-native';
+import { View, TouchableWithoutFeedback, StyleSheet } from 'react-native';
 /* eslint-enable import/no-unresolved, import/extensions */
 import ListItem from '../ListItem';
+
+import _ from "lodash";
 
 const propTypes = {
     avatar: PropTypes.element,
@@ -58,9 +60,15 @@ class HeaderAcount extends PureComponent {
             return null;
         }
 
+        let contextStyle = StyleSheet.flatten(this.context.uiTheme.drawerHeaderListItem.container);
+        let propStyle = this.props.style;
+        let s = _.merge({}, propStyle, contextStyle);
+        let localStyle = StyleSheet.create(s);
+
         const props = {
             ...footer,
-            style: this.context.uiTheme.drawerHeaderListItem,
+            style: localStyle,
+            //style: this.context.uiTheme.drawerHeaderListItem,
         };
 
         return <ListItem {...props} />;
