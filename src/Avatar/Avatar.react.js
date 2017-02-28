@@ -90,8 +90,6 @@ class Avatar extends PureComponent {
             content = image;
         }
 
-        console.log(styles.container[0]);
-
         return (
             <View style={{ flexGrow: 1 }}>
                 <View style={styles.container} >
