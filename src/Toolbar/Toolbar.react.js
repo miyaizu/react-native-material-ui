@@ -132,6 +132,8 @@ const propTypes = {
                 labels: PropTypes.arrayOf(PropTypes.string),
             }),
         }),
+
+        PropTypes.arrayOf(PropTypes.element),
     ]),
     /**
     * Called when rightElement was pressed.

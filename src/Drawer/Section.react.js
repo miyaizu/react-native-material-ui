@@ -10,12 +10,21 @@ const propTypes = {
     title: PropTypes.string,
     items: PropTypes.arrayOf(PropTypes.shape({
         icon: PropTypes.string,
-        value: PropTypes.string.isRequired,
+        //value: PropTypes.string.isRequired,
         label: PropTypes.string,
         onPress: PropTypes.func,
         onLongPress: PropTypes.func,
         active: PropTypes.bool,
         disabled: PropTypes.bool,
+        value: PropTypes.oneOfType([
+            PropTypes.element,
+            PropTypes.string,
+            PropTypes.shape({
+                primaryText: PropTypes.string.isRequired,
+                secondaryText: PropTypes.string,
+                tertiaryText: PropTypes.string,
+            }),
+        ]).isRequired,
     })),
     divider: PropTypes.bool,
 };
@@ -95,6 +104,13 @@ class Section extends PureComponent {
                             />
                         );
                     })}
+                    {/*rawitems && rawitems.map((item, i) => {
+                        return (
+                            <View key={i}>
+                                {item.value}
+                            </View>
+                        );
+                    })*/}
                 </View>
                 {divider && <Divider />}
             </View>
